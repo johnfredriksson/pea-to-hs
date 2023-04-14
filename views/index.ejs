@@ -1,0 +1,11 @@
+<%- include("partials/header") %>
+
+<h1 class="headline">Enter Your<br> <strong>PE Accounting</strong><br>Credentials To <br>Retrieve <strong>Clients</strong></h1>
+
+<form action="/clients", method="POST">
+    <input type="text" placeholder="Company id" name="companyId" required>
+    <input type="password" placeholder="API Key" name="apiKey" required>
+    <input type="submit" value="Fetch">
+</form>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,78 @@
+.button {
+    border-radius: 0.3em;
+    width: 15em;
+    height: 5vw;
+    display: inline-block;
+    background-color: #F3773A;
+    color: #ffffff;
+    font-size: 1.5em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+    border: 2px solid #F3773A;
+    position: relative;
+    left: 23em;
+    top: 13em;
+    transition: all ease-in-out 0.1s;
+}
+
+.button p {
+    position: relative;
+    top: 1em;
+    left: 1em;
+}
+
+.button:hover, input[type=submit]:hover {
+    color: #F3773A;
+    background-color: #ffffff;
+}
+
+.button:hover img {
+    rotate: 30deg;
+}
+
+.newTab {
+    color: #000000;
+    text-decoration: none;
+}
+
+form {
+    padding: 5em 0 5em;
+    margin-left: 50%;
+}
+
+label {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    position: relative;
+    top: 1.2em;
+    max-width: 22.5em;
+}
+
+input {
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
+    margin: 1em auto;
+    border: 2px solid #F3773A;
+    border-right: none;
+    padding: 0.3em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    transition: all ease-in-out 0.1s;
+}
+
+input:focus{
+    outline: none;
+    border-left: 10px solid #F3773A;
+}
+
+input[type=text]:hover, input[type=password]:hover {
+    border-left: 10px solid #F3773A;
+}
+
+input[type=submit] {
+    background-color: #F3773A;
+    color: #ffffff;
+    transition: 0.2s;
+}

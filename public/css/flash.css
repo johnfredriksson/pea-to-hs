@@ -1,0 +1,15 @@
+.alert {
+    width: 23em;
+    /* position: absolute; */
+    float: right;
+    text-align: center;
+    display: block;
+    padding: 1em;
+    font-family: 'Quicksand', sans-serif;
+    transition: 1s all ease-in-out;
+    margin-top: 5em;
+}
+
+.error {
+    background-color: rgba(255, 0, 0, 0.216);
+}
