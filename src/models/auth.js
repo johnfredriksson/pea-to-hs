@@ -24,7 +24,7 @@ const auth = {
       return data;
     }
 
-    throw Error('Failed to retreive access token');
+    throw Error('Failed to retrieve access token');
   },
 
   /**
@@ -34,7 +34,8 @@ const auth = {
     * @param  {string} scope         - Hubspot application scope,
     *                                  e.g. app permissions to user data
     * @param  {string} redirectUri  - Hubspot application redirect uri
-    * @return {string}               - The full URL
+    *
+    * @return {string}              - The full URL
     */
   authUrl: (clientId, scope, redirectUri) => {
     return 'https://app.hubspot.com/oauth/authorize' +
