@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1681496759798" clover="3.2.0">
-  <project timestamp="1681496759798" name="All files">
-    <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3" elements="16" coveredelements="16" complexity="0" loc="9" ncloc="9" packages="1" files="1" classes="1"/>
+<coverage generated="1681589260095" clover="3.2.0">
+  <project timestamp="1681589260095" name="All files">
+    <metrics statements="24" coveredstatements="24" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6" elements="38" coveredelements="38" complexity="0" loc="24" ncloc="24" packages="1" files="2" classes="2"/>
     <file name="auth.js" path="/Users/johnfredriksson/Projects/Exjobb/pea-to-hs/src/models/auth.js">
       <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
       <line num="3" count="3" type="stmt"/>
@@ -13,6 +13,24 @@
       <line num="41" count="1" type="stmt"/>
       <line num="56" count="2" type="cond" truecount="2" falsecount="0"/>
       <line num="60" count="3" type="stmt"/>
+    </file>
+    <file name="fetcher.js" path="/Users/johnfredriksson/Projects/Exjobb/pea-to-hs/src/models/fetcher.js">
+      <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="13" count="3" type="stmt"/>
+      <line num="17" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="21" count="2" type="stmt"/>
+      <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="38" count="3" type="stmt"/>
+      <line num="40" count="3" type="stmt"/>
+      <line num="42" count="3" type="stmt"/>
+      <line num="43" count="3" type="stmt"/>
+      <line num="44" count="4" type="stmt"/>
+      <line num="47" count="3" type="stmt"/>
+      <line num="51" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>

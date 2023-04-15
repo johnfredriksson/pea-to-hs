@@ -6,8 +6,8 @@ it('should return object if token is present', async () => {
       json: () => Promise.resolve({access_token: 'access_token'}),
     }),
   );
-  const title = await exchangeForToken({test: 'test'});
-  expect(title.access_token).toEqual('access_token');
+  const data = await exchangeForToken({test: 'test'});
+  expect(data.access_token).toEqual('access_token');
 });
 
 it('should throw error if token not present', async () => {

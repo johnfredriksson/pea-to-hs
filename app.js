@@ -70,8 +70,6 @@ async function validateToken(req) {
   }
 }
 
-// =====ROUTES=================================================================
-
 /**
  * - Sets various tokens:
  *   access token to Node Cache with specified TTL
@@ -91,6 +89,9 @@ function setTokens(req, tokens) {
   refreshToken[req.sessionID] = tokens.refresh_token;
   hubspotClient = new hubspot.Client({accessToken: tokens.access_token});
 }
+
+// =====ROUTES=================================================================
+
 
 /**
 * - Index
@@ -154,11 +155,11 @@ app.post('/clients', urlencodedParser, async (req, res) => {
     await validateToken(req);
     if (req.body.companyId && req.body.apiKey) {
       try {
-        peaClients = await fetcherModel.get_pea_clients(
+        peaClients = await fetcherModel.getPeaClients(
             req.body.companyId,
             req.body.apiKey,
         );
-        hsClients = await fetcherModel.get_hs_companies(hubspotClient);
+        hsClients = await fetcherModel.getHsCompanies(hubspotClient);
 
         peaClients.forEach((client) =>
           companies.push(moveModel.createCompanyObject(client)));
