@@ -1,71 +1,70 @@
 const getHsCompanies = require('../../../src/models/fetcher').getHsCompanies;
-let hubspot = require('@hubspot/api-client');
+const hubspot = require('@hubspot/api-client');
 
 // jest.mock('@hubspot/api-client');
 
 it('return object with company name and id', async () => {
-  hubspotClient = new hubspot.Client({accessToken: "test"});
+  hubspotClient = new hubspot.Client({accessToken: 'test'});
   hubspotClient.crm.companies.basicApi.getPage = jest.fn(() =>
     Promise.resolve({
       results: [
         {
-          id: "companyId",
+          id: 'companyId',
           properties: {
-            name: "companyName"
-          }
-        }
-      ]
-    })
+            name: 'companyName',
+          },
+        },
+      ],
+    }),
   );
 
   const data = await getHsCompanies(hubspotClient);
-  expect(data).toEqual({companyName: "companyId"});
+  expect(data).toEqual({companyName: 'companyId'});
 });
 
 it('return object with multiple company names and ids', async () => {
-  hubspotClient = new hubspot.Client({accessToken: "test"});
+  hubspotClient = new hubspot.Client({accessToken: 'test'});
   hubspotClient.crm.companies.basicApi.getPage = jest.fn(() =>
     Promise.resolve({
       results: [
         {
-          id: "companyIdOne",
+          id: 'companyIdOne',
           properties: {
-            name: "companyNameOne"
-          }
+            name: 'companyNameOne',
+          },
         },
         {
-          id: "companyIdTwo",
+          id: 'companyIdTwo',
           properties: {
-            name: "companyNameTwo"
-          }
+            name: 'companyNameTwo',
+          },
         },
         {
-          id: "companyIdThree",
+          id: 'companyIdThree',
           properties: {
-            name: "companyNameThree"
-          }
-        }
-      ]
-    })
+            name: 'companyNameThree',
+          },
+        },
+      ],
+    }),
   );
 
   const data = await getHsCompanies(hubspotClient);
-  expect(data.companyNameOne).toEqual("companyIdOne");
-  expect(data.companyNameTwo).toEqual("companyIdTwo");
-  expect(data.companyNameThree).toEqual("companyIdThree");
+  expect(data.companyNameOne).toEqual('companyIdOne');
+  expect(data.companyNameTwo).toEqual('companyIdTwo');
+  expect(data.companyNameThree).toEqual('companyIdThree');
 });
 
 it('return empty object', async () => {
-  hubspotClient = new hubspot.Client({accessToken: "test"});
+  hubspotClient = new hubspot.Client({accessToken: 'test'});
   hubspotClient.crm.companies.basicApi.getPage = jest.fn(() =>
     Promise.resolve({
-      results: []
-    })
+      results: [],
+    }),
   );
 
   const data = await getHsCompanies(hubspotClient);
   expect(data).toEqual({});
 });
-
 
 
