@@ -51,6 +51,11 @@ const move = {
     await hubspotClient.crm.companies.batchApi.update(
         {inputs: existingCompanies},
     );
+
+    return {
+      newCompanies: newCompanies,
+      existingCompanies: existingCompanies,
+    };
   },
 };
 

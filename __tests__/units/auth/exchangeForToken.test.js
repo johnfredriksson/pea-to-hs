@@ -17,9 +17,7 @@ it('should throw error if token not present', async () => {
     }),
   );
   try {
-    const data = await exchangeForToken();
-
-    console.log(data);
+    await exchangeForToken();
   } catch (error) {
     expect(error.message).toEqual('Failed to retrieve access token');
   }
