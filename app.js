@@ -1,3 +1,17 @@
+/**
+ * -- PeaToHs --
+ *
+ * - A web application that automates the transfer of clients from
+ *   PE Accounting into HubSpot companies.
+ *
+ * - Application main script.
+ *   Execute by running 'node app.js while in root folder,
+ *   application is then accessed at localhost:4000
+ *
+ * @author John Fredriksson
+ *
+ */
+
 // =====IMPORTS================================================================
 
 require('dotenv').config();
@@ -22,9 +36,9 @@ const SCOPE = (process.env.SCOPE.split(/ |, ?|%20/)).join(' ');
 
 // =====MISC===================================================================
 
-const accessToken = new NodeCache({deleteOnExpire: true});
-const refreshToken = {};
-const companies = [];
+let accessToken = new NodeCache({deleteOnExpire: true});
+let refreshToken = {};
+let companies = [];
 let hubspotClient;
 let peaClients;
 let hsClients;
@@ -52,11 +66,10 @@ app.use(flash(app));
  *
  * @param   {object} req - The express request object
  *
- * @return {void}
+ * @return {string}      - A string explaining outcome
  */
 async function validateToken(req) {
   if (!accessToken.get(req.sessionID)) {
-    console.log(req.sessionID);
     const formData = {
       grant_type: 'refresh_token',
       client_id: CLIENT_ID,
@@ -67,7 +80,10 @@ async function validateToken(req) {
     const tokens = await authModel.exchangeForToken(formData);
 
     setTokens(req, tokens);
+
+    return 'Refreshed';
   }
+  return 'Valid';
 }
 
 /**
@@ -88,6 +104,19 @@ function setTokens(req, tokens) {
   );
   refreshToken[req.sessionID] = tokens.refresh_token;
   hubspotClient = new hubspot.Client({accessToken: tokens.access_token});
+}
+
+/**
+ * - Resets all data
+ * @param {object} req
+ */
+function logout(req) {
+  accessToken = new NodeCache({deleteOnExpire: true});
+  refreshToken = {};
+  companies = [];
+  hubspotClient = undefined;
+  peaClients = undefined;
+  hsClients = undefined;
 }
 
 // =====ROUTES=================================================================
@@ -198,6 +227,17 @@ app.post('/move', urlencodedParser, async (req, res) => {
   }
 
   return req.flash('error', 'Not authorized', '/');
+});
+
+/**
+ * - Logout
+ *
+ * - Reset all data and variables and return to index.
+ */
+app.get('/logout', (req, res) => {
+  logout();
+
+  return req.flash('success', 'You\'ve been logged out', '/');
 });
 
 // =====RUNNING================================================================

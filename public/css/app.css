@@ -4,7 +4,12 @@
 }
 
 body {
+    background-color: #ffffff;
+}
+
+header {
     background-color: #FBEA41;
+    height: 10vh;
 }
 
 .container {
@@ -26,19 +31,11 @@ body {
     max-width: 30vw;
 }
 
-img {
-    width: 20%;
-    position: relative;
-    left: 11em;
-    bottom: 1em;
-    transition: all ease-in-out 0.3s;
-}
-
 .logo {
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
     position: absolute;
-    top: 0.3em;
+    top: 1.3em;
     left: 0.3em;
 }
 
@@ -47,8 +44,8 @@ img {
     text-decoration: none;
     font-size: 2em;
     position: absolute;
-    top: 0.4em;
-    right: 2em;
+    top: 1.4em;
+    right: 1em;
 }
 
 .social a {
@@ -56,10 +53,32 @@ img {
     margin-right: 1em;
 }
 
-.social a:hover {
+.social i {
+    color: #000000;
+}
+
+.social i:hover {
     color: #00000075;
 }
 
 a:visited {
     color: #000000
+}
+
+.logout {
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    float: right;
+    font-size: 2em;
+    color: #000000;
+}
+
+.logout i {
+    transition: all ease-in-out 0.2s;
+}
+
+.logout:hover i {
+    rotate: 90deg;
+    color: #5c5c5c;
+    transform: scale(1.2);
 }
