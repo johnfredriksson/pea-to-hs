@@ -28,7 +28,7 @@ const cookieParser = require('cookie-parser');
 const NodeCache = require( 'node-cache' );
 
 // Testing purposes only
-// const mockClients = require('./__tests__/clients/clients.js');
+// const mockClients = require('./mockdata/clients/clients.js');
 
 // =====ENVIRONMENTAL VARIABLES================================================
 
