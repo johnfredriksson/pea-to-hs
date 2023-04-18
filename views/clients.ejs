@@ -5,6 +5,9 @@
 <h1 class="headline">Enter The<br> <strong>Domain Name</strong><br>Linked To Each <strong>Client</strong></h1>
 
 <form action="/move" method="POST">
+    <% if (peaClients.length >= 10) { %>
+        <input type="submit" value="Confirm">
+    <% } %>
     <% peaClients.forEach(function(client) { %>
         <label for="<%= client.properties.name %>"><%= client.properties.name %> <a class="newTab" href="https://<%= client.properties.domain %>" target="_blank">&#9721;</a></label>
         <input type="text" name="<%= client.properties.name %>" value="<%= client.properties.domain %>">

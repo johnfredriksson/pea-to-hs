@@ -34,9 +34,11 @@ header {
 .logo {
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
+    font-size: 2em;
     position: absolute;
     top: 1.3em;
     left: 0.3em;
+    text-decoration: none;
 }
 
 .social {

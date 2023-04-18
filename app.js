@@ -27,6 +27,9 @@ const flash = require('express-flash-notification');
 const cookieParser = require('cookie-parser');
 const NodeCache = require( 'node-cache' );
 
+// Testing purposes only
+// const mockClients = require('./__tests__/clients/clients.js');
+
 // =====ENVIRONMENTAL VARIABLES================================================
 
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -38,7 +41,7 @@ const SCOPE = (process.env.SCOPE.split(/ |, ?|%20/)).join(' ');
 
 let accessToken = new NodeCache({deleteOnExpire: true});
 let refreshToken = {};
-let companies = [];
+let companies;
 let hubspotClient;
 let peaClients;
 let hsClients;
@@ -108,7 +111,10 @@ function setTokens(req, tokens) {
 
 /**
  * - Resets all data
- * @param {object} req
+ *
+ * @param  {object} req
+ *
+ * @return {void}
  */
 function logout(req) {
   accessToken = new NodeCache({deleteOnExpire: true});
@@ -173,7 +179,7 @@ app.get('/auth/oauth-callback', async (req, res) => {
 });
 
 /**
- * - Clients
+ * - Clients fetch
  *
  * - Collects PEA clients and HubSpot companies by using access
  *   token and credentials from form.
@@ -188,22 +194,40 @@ app.post('/clients', urlencodedParser, async (req, res) => {
             req.body.companyId,
             req.body.apiKey,
         );
+
+        // peaClients = mockClients; // FOR TESTING PURPOSES
+
         hsClients = await fetcherModel.getHsCompanies(hubspotClient);
+
+        companies = [];
 
         peaClients.forEach((client) =>
           companies.push(moveModel.createCompanyObject(client)));
 
-        const data = {
-          peaClients: companies,
-          hsClients: hsClients,
-        };
-
-        return res.render('clients', data);
+        return res.redirect('/clients');
       } catch (error) {
         return req.flash('error', error.message, '/');
       }
     }
     return req.flash('error', 'Company id or API key missing', '/');
+  }
+  return req.flash('error', 'Not authorized', '/');
+});
+
+/**
+ * Clients display
+ *
+ * - Displays all clients in the application, presents a
+ *   form to supply domain names.
+ */
+app.get('/clients', (req, res) => {
+  if (authModel.isAuthorized(req.sessionID, refreshToken)) {
+    const data = {
+      peaClients: companies,
+      hsClients: hsClients,
+    };
+
+    return res.render('clients', data);
   }
   return req.flash('error', 'Not authorized', '/');
 });
@@ -215,15 +239,19 @@ app.post('/clients', urlencodedParser, async (req, res) => {
  *   and delivers a status page after transfer is complete.
  */
 app.post('/move', urlencodedParser, async (req, res) => {
-  if (authModel.isAuthorized(req.sessionID, refreshToken)) {
-    await validateToken(req);
-    companies.forEach((company) => {
-      company.properties.domain = req.body[company.properties.name];
-    });
+  try {
+    if (authModel.isAuthorized(req.sessionID, refreshToken)) {
+      await validateToken(req);
+      companies.forEach((company) => {
+        company.properties.domain = req.body[company.properties.name];
+      });
 
-    await moveModel.moveCompanies(companies, hubspotClient, hsClients);
+      await moveModel.moveCompanies(companies, hubspotClient, hsClients);
 
-    return res.render('complete');
+      return res.render('complete');
+    }
+  } catch (error) {
+    req.flash('error', 'An error occured', '/');
   }
 
   return req.flash('error', 'Not authorized', '/');
