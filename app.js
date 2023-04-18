@@ -268,6 +268,15 @@ app.get('/logout', (req, res) => {
   return req.flash('success', 'You\'ve been logged out', '/');
 });
 
+/**
+ * 404 Route
+ * 
+ * - Catches all non existent routes and redirects to index.
+ */
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
+
 // =====RUNNING================================================================
 
 // Start the server
