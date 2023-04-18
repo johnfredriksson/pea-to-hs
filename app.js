@@ -270,7 +270,7 @@ app.get('/logout', (req, res) => {
 
 /**
  * 404 Route
- * 
+ *
  * - Catches all non existent routes and redirects to index.
  */
 app.get('*', (req, res) => {
