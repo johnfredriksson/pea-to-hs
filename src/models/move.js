@@ -17,7 +17,10 @@ const move = {
           break;
         case 'email':
           companyObject.properties.owneremail = value;
-          companyObject.properties.domain = value.split('@')[1];
+          const email = value.split('@');
+          if (email[1]) {
+            companyObject.properties.domain = email[1];
+          }
           break;
         case 'phone':
           companyObject.properties.phone = value;

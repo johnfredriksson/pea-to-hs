@@ -4,7 +4,7 @@
   "description": "Application to transfer Company Data from PE Accounting to HubSpot",
   "main": "app.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "eslint . --ext .js",
     "lint:fix": "npm run lint -- --fix"
   },

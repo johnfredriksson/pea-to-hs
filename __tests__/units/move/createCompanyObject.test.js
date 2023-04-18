@@ -66,3 +66,20 @@ test('should return a company object with name property', () => {
     },
   });
 });
+
+test('should return a company object with some properties', () => {
+  const client = {
+    name: 'clientName',
+    phone: '123-4 12 34 56',
+    email: 'client.se',
+    address: {
+      address1: 'first address',
+      state: 'state',
+      country: 'country',
+    },
+  };
+
+  const result = createCompanyObject(client);
+  expect(result.properties.owneremail).toEqual('client.se');
+  expect(result.properties.domain).toEqual(undefined);
+});

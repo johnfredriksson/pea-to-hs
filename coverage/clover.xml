@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1681655061134" clover="3.2.0">
-  <project timestamp="1681655061134" name="All files">
-    <metrics statements="52" coveredstatements="52" conditionals="14" coveredconditionals="14" methods="9" coveredmethods="9" elements="75" coveredelements="75" complexity="0" loc="52" ncloc="52" packages="1" files="3" classes="3"/>
+<coverage generated="1681812527387" clover="3.2.0">
+  <project timestamp="1681812527387" name="All files">
+    <metrics statements="54" coveredstatements="54" conditionals="16" coveredconditionals="16" methods="9" coveredmethods="9" elements="79" coveredelements="79" complexity="0" loc="54" ncloc="54" packages="1" files="3" classes="3"/>
     <file name="auth.js" path="/Users/johnfredriksson/Projects/Exjobb/pea-to-hs/src/models/auth.js">
       <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
       <line num="3" count="3" type="stmt"/>
@@ -33,35 +33,37 @@
       <line num="51" count="2" type="stmt"/>
     </file>
     <file name="move.js" path="/Users/johnfredriksson/Projects/Exjobb/pea-to-hs/src/models/move.js">
-      <metrics statements="28" coveredstatements="28" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <metrics statements="30" coveredstatements="30" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
       <line num="1" count="2" type="stmt"/>
-      <line num="9" count="3" type="stmt"/>
-      <line num="13" count="3" type="stmt"/>
-      <line num="14" count="8" type="cond" truecount="4" falsecount="0"/>
-      <line num="16" count="3" type="stmt"/>
-      <line num="17" count="3" type="stmt"/>
-      <line num="19" count="1" type="stmt"/>
-      <line num="20" count="1" type="stmt"/>
-      <line num="21" count="1" type="stmt"/>
-      <line num="23" count="2" type="stmt"/>
+      <line num="9" count="4" type="stmt"/>
+      <line num="13" count="4" type="stmt"/>
+      <line num="14" count="12" type="cond" truecount="4" falsecount="0"/>
+      <line num="16" count="4" type="stmt"/>
+      <line num="17" count="4" type="stmt"/>
+      <line num="19" count="2" type="stmt"/>
+      <line num="20" count="2" type="stmt"/>
+      <line num="21" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="22" count="1" type="stmt"/>
       <line num="24" count="2" type="stmt"/>
-      <line num="26" count="2" type="stmt"/>
-      <line num="27" count="2" type="stmt"/>
-      <line num="28" count="2" type="stmt"/>
-      <line num="29" count="2" type="stmt"/>
-      <line num="30" count="2" type="stmt"/>
-      <line num="34" count="3" type="stmt"/>
-      <line num="37" count="5" type="stmt"/>
-      <line num="38" count="5" type="stmt"/>
+      <line num="26" count="3" type="stmt"/>
+      <line num="27" count="3" type="stmt"/>
+      <line num="29" count="3" type="stmt"/>
+      <line num="30" count="3" type="stmt"/>
+      <line num="31" count="3" type="stmt"/>
+      <line num="32" count="3" type="stmt"/>
+      <line num="33" count="3" type="stmt"/>
+      <line num="37" count="4" type="stmt"/>
       <line num="40" count="5" type="stmt"/>
-      <line num="41" count="8" type="cond" truecount="2" falsecount="0"/>
-      <line num="42" count="4" type="stmt"/>
-      <line num="43" count="4" type="stmt"/>
+      <line num="41" count="5" type="stmt"/>
+      <line num="43" count="5" type="stmt"/>
+      <line num="44" count="8" type="cond" truecount="2" falsecount="0"/>
       <line num="45" count="4" type="stmt"/>
-      <line num="48" count="5" type="stmt"/>
+      <line num="46" count="4" type="stmt"/>
+      <line num="48" count="4" type="stmt"/>
       <line num="51" count="5" type="stmt"/>
-      <line num="55" count="5" type="stmt"/>
-      <line num="62" count="2" type="stmt"/>
+      <line num="54" count="5" type="stmt"/>
+      <line num="58" count="5" type="stmt"/>
+      <line num="65" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>
